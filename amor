@@ -1,0 +1,77 @@
+index.html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para ti ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(#ff9a9e, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial;
+      overflow: hidden;
+    }
+
+    #card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      max-width: 300px;
+    }
+
+    button {
+      background: #ff4d6d;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 24px;
+      animation: float 4s infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-600px); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="card">
+  <h2>Hola amor 💖</h2>
+  <p id="text">Presiona el botón</p>
+  <button onclick="showLove()">Abrir</button>
+</div>
+
+<script>
+function showLove() {
+  document.getElementById("text").innerHTML =
+  "Feliz 14 de febrero ❤️<br><br>Gracias por existir y por hacer mi vida más bonita. Te amo.";
+
+  for(let i=0; i<20; i++){
+    let heart = document.createElement("div");
+    heart.innerHTML = "❤️";
+    heart.className = "heart";
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.top = "100vh";
+    document.body.appendChild(heart);
+
+    setTimeout(()=>heart.remove(),4000);
+  }
+}
+</script>
+
+</body>
+</html>

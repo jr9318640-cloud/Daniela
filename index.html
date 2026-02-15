@@ -2,75 +2,111 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Para ti ❤️</title>
-  <style>
+  <title>Para Daniela 💜</title>
+  < style>
     body {
       margin: 0;
-      height: 100vh;
-      background: linear-gradient(#ff9a9e, #fad0c4);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: Arial;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(180deg, #1a001a, #330033);
+      color: white;
+      text-align: center;
       overflow: hidden;
     }
 
-    #card {
-      background: white;
-      padding: 30px;
-      border-radius: 20px;
-      text-align: center;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
-      max-width: 300px;
+    .container {
+      position: relative;
+      z-index: 2;
+      padding: 40px 20px;
     }
 
-    button {
-      background: #ff4d6d;
-      border: none;
-      color: white;
-      padding: 10px 20px;
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    .photo {
+      width: 250px;
       border-radius: 20px;
-      font-size: 16px;
-      cursor: pointer;
+      margin: 20px 0;
+      box-shadow: 0 0 30px rgba(255, 0, 255, 0.6);
+    }
+
+    .message {
+      font-size: 1.5em;
+      line-height: 1.4;
+    }
+
+    .tulip {
+      position: absolute;
+      bottom: -100px;
+      font-size: 40px;
+      animation: floatUp 10s linear infinite;
     }
 
     .heart {
       position: absolute;
-      font-size: 24px;
-      animation: float 4s infinite;
+      top: -50px;
+      font-size: 30px;
+      color: pink;
+      animation: fallDown 8s linear infinite;
     }
 
-    @keyframes float {
-      0% { transform: translateY(0); opacity: 1; }
-      100% { transform: translateY(-600px); opacity: 0; }
+    @keyframes floatUp {
+      from { transform: translateY(0); }
+      to { transform: translateY(-120vh); }
+    }
+
+    @keyframes fallDown {
+      from { transform: translateY(0); }
+      to { transform: translateY(120vh); }
+    }
+
+    audio {
+      display: none;
     }
   </style>
 </head>
 <body>
 
-<div id="card">
-  <h2>Hola mi amor 💖</h2>
-  <p id="text">Presiona el botón</p>
-  <button onclick="showLove()">Abrir</button>
+<div class="container">
+  <h1>Feliz 14 de Febrero 💜</h1>
+  
+  <img src="WhatsApp Image 2026-02-14 at 7.34.50 PM.jpeg" class="photo">
+  
+  <div class="message">
+    Feliz 14 de febrero, mi amor.<br>
+    Gracias por ser tan linda, Daniela.<br>
+    Te amo mucho, mi reina hermosa 💜🌷
+  </div>
 </div>
 
+<audio autoplay loop>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
 <script>
-function showLove() {
-  document.getElementById("text").innerHTML =
-  "Feliz 14 de febrero, mi amor ❤️<br><br>Gracias por ser tan linda conmigo.<br>Te amo mucho, mi reina hermosa 👑";
-
-  for(let i=0; i<20; i++){
-    let heart = document.createElement("div");
-    heart.innerHTML = "❤️";
-    heart.className = "heart";
-    heart.style.left = Math.random()*100 + "vw";
-    heart.style.top = "100vh";
-    document.body.appendChild(heart);
-
-    setTimeout(()=>heart.remove(),4000);
+  for (let i = 0; i < 20; i++) {
+    let t = document.createElement("div");
+    t.className = "tulip";
+    t.style.left = Math.random() * 100 + "vw";
+    t.innerHTML = "🌷";
+    t.style.animationDuration = (5 + Math.random()*5) + "s";
+    document.body.appendChild(t);
   }
-}
+
+  for (let i = 0; i < 25; i++) {
+    let h = document.createElement("div");
+    h.className = "heart";
+    h.style.left = Math.random() * 100 + "vw";
+    h.innerHTML = "💖";
+    h.style.animationDuration = (4 + Math.random()*4) + "s";
+    document.body.appendChild(h);
+  }
 </script>
+
+</body>
+</html>
+
 
 </body>
 </html>
